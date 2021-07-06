@@ -59,7 +59,3 @@ def get_connection():
     connection = sqlite3.connect("parser.db")
     create_schema(connection)
     return connection
-
-
-if __name__ == "__main__":
-    fetch_new_release_links()
