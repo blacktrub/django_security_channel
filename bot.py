@@ -1,17 +1,21 @@
 import requests
 
 TELEGRAM_API_URL = "https://api.telegram.org/"
-CHANNEL_CHAT_ID = -1001543216977
+
+
+def read_from_file(fn):
+    with open(fn) as f:
+        return f.readline().strip()
 
 
 def send_message(link):
-    with open("token.txt") as f:
-        token = f.readline().strip()
+    token = read_from_file("token.txt")
+    channel_id = int(read_from_file("channel.txt"))
     url = f"{TELEGRAM_API_URL}bot{token}/sendMessage"
     requests.post(
         url,
         json={
-            "chat_id": CHANNEL_CHAT_ID,
+            "chat_id": channel_id,
             "text": link,
         },
     )
