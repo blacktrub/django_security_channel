@@ -16,7 +16,7 @@ def fetch_and_send():
         logging.exception("problem with parsing")
         return
 
-    for link in new_links:
+    for link in reversed(new_links):
         try:
             send_message(link)
         except Exception:

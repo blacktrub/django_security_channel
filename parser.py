@@ -24,7 +24,7 @@ def fetch_new_release_links():
                 continue
 
             if is_exists_in_db(connection, href):
-                return new_links
+                continue
 
             add_to_db(connection, href)
             new_links.append(href)
