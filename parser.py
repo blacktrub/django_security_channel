@@ -1,7 +1,11 @@
 import sqlite3
+import collections
 
 import requests
 from bs4 import BeautifulSoup
+
+
+Link = collections.namedtuple("Link", "href text")
 
 
 def fetch_new_release_links():
@@ -27,7 +31,7 @@ def fetch_new_release_links():
                 continue
 
             add_to_db(connection, href)
-            new_links.append(href)
+            new_links.append(Link(href, text))
     return new_links
 
 
