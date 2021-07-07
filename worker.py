@@ -22,7 +22,7 @@ def fetch_and_send():
         except Exception:
             logging.exception("problem with telegram")
 
-        time.sleep(1)
+        time.sleep(5)
 
 
 schedule.every(1).hours.do(fetch_and_send)
